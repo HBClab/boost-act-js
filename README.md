@@ -126,7 +126,7 @@ The app is designed to support two main workflows:
    Quickly locate individual participants by entering their study ID (e.g., `8001`) into the search bar.
 
 2. **Filter by Criteria**  
-   Use filters to find subsets of participants that meet specific QA or task-based conditions.
+   Use filters to find subsets of participants that meet specific site or study criteria.
 
 ---
 
