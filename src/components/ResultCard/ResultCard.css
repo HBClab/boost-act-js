@@ -1,0 +1,146 @@
+/* src/components/ResultCard/ResultCard.css */
+
+/* ─── The Card Container ─── */
+.card {
+  /* If you want to override height, set --card-height elsewhere. Defaults to 800px. */
+  height: var(--card-height, 800px);
+  width: 90vw;           /* or 90% if you prefer percentage of parent */
+  max-width: 1000px;     /* optional cap */
+  margin: 20px auto;
+  background-color: #f7f8fb; /* light gray background */
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  overflow: hidden;      /* anything outside the card’s box is clipped */
+}
+
+/* ─── Header (fixed size, does not flex) ─── */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-shrink: 0; /* do not shrink or grow */
+  margin-bottom: 8px;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #222;
+}
+
+.card-meta {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  font-size: 0.875rem;
+  color: #555;
+}
+
+/* ─── Divider Line (fixed) ─── */
+.card-divider {
+  border: none;
+  border-top: 1px solid #ccc;
+  flex-shrink: 0;    /* never grow/shrink */
+  margin: 8px 0 16px;
+}
+
+/* ─── Summary Container (fixed height) ─── */
+.summary-container {
+  height: var(--summary-height, 200px); /* fallback to 200px */
+  flex-shrink: 0;                       /* do not grow/shrink */
+  position: relative;
+  overflow: hidden;
+  background-color: #FFFFFF;
+  margin-bottom: 12px;
+  border-radius: 6px;
+}
+
+.summary-button {
+  background: none;
+  border: none;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  padding: 0;
+}
+
+.summary-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* ─── 1) Wrapper (does NOT scroll) ─── */
+.daily-wrapper {
+  position: relative;
+  flex-grow: 1;             /* fill the remaining vertical space in .card */
+  overflow: hidden;         /* crop anything that bleeds beyond the wrapper */
+}
+
+/* ─── 2) Scrollable container (only this part scrolls) ─── */
+.daily-container {
+  height: 100%;
+  overflow-y: auto;
+  background-color: #e0e0e0;
+  border-radius: 6px;
+}
+
+/* Keep your existing button/image styling inside the scroll area */
+.daily-button {
+  background: none;
+  border: none;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+}
+
+.daily-image {
+  width: auto;
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+}
+
+/* ─── 3) Fade‐out overlay (stuck at bottom of wrapper) ─── */
+.daily-fade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;  /* adjust as needed for a stronger or lighter fade */
+  pointer-events: none;
+
+  /* Make sure this matches your card background so it “fades to” that color */
+  background: linear-gradient(
+    rgba(247, 248, 251, 0),   /* fully transparent at top */
+    rgba(247, 248, 251, 1)    /* solid (same as .card’s bg) at bottom */
+  );
+}
+
+/* ─── 4) Scrollbar styling (optional) ─── */
+.daily-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.daily-container::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.daily-container::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+}
+
+/* Firefox */
+.daily-container {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.2) rgba(0, 0, 0, 0.05);
+}

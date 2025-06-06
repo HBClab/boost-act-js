@@ -1,70 +1,137 @@
-# Getting Started with Create React App
+# Boost Accelerometer Data Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Table of Contents
 
-## Available Scripts
+- [Installation](#Installation)
+- [Usage](#Usage)
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## Installation
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+🛠️ Local Setup Instructions
 
-### `npm test`
+These steps will walk you through installing Git, Docker Desktop, and running the web application locally using Docker.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
+#### Check if Git is Installed
 
-### `npm run build`
+Open a terminal (or powershell for Windows) and run:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```sh
+git --version
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+If you see something like git version 2.40.1, Git is already installed. If you get an error like command not found, continue below.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
+#### 🧰 Install Git (if not already installed)
 
-### `npm run eject`
+🔵 macOS
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```sh 
+brew install git
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Or download it from the official installer:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+👉 https://git-scm.com/download/mac
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+🟦 Windows
 
-## Learn More
+Use the below link to install Git for Windows. During installation, you can accept the default options.
+https://github.com/git-for-windows/git/releases/download/v2.49.0.windows.1/Git-2.49.0-64-bit.exe
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+🟢 Linux (Debian/Ubuntu)
+```sh
+sudo apt update
+sudo apt install git
+```
+Verify Git is working:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```sh
+git --version
+```
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
+#### 🐳 Install Docker Desktop
 
-### Analyzing the Bundle Size
+🔗 Download Links:
+	•	macOS/Windows: https://www.docker.com/products/docker-desktop
+	•	Linux (Desktop GUI): https://docs.docker.com/desktop/install/linux-install/
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+🚧 During Installation:
+	1.	Accept the Terms of Service
+	2.	Allow any OS-level permissions or system extensions
+	3.	Log in or create a Docker Hub account (free)
+	4.	Once installed, open Docker Desktop and leave it running in the background
 
-### Making a Progressive Web App
+To confirm Docker is running:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```sh
+docker --version
+```
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+If Docker is not found, try restarting your terminal or logging out and back in.
 
-### Deployment
+⸻
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+#### ⬇️ Clone the Repository
 
-### `npm run build` fails to minify
+In your terminal:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```sh
+git clone https://github.com/HBClab/boost-act-js.git
+cd boost-beh-act
+```
+
+
+⸻
+
+5. 🚀 Build and Run the App with Docker
+
+Make sure Docker Desktop is still running.
+
+🛠️ Build the image:
+```sh
+docker build -t act .
+```
+> If you are having trouble with this step try the following:
+> 1. Make sure your verified your email with docker. If you have not, it will not let you complete this step.
+> 2. Make sure the docker app is running.
+> 3. If none of these work, shoot me an email with the terminal output of this step!
+
+▶️ Run the container:
+
+```sh
+docker run -p 3000:3000 boost-beh
+```
+
+---
+You can now access the app at:
+
+🌐 http://localhost:3000
+
+---
+
+
+## Usage
+
+The app is designed to support two main workflows:
+
+1. **Search by Study ID**  
+   Quickly locate individual participants by entering their study ID (e.g., `8001`) into the search bar.
+
+2. **Filter by Criteria**  
+   Use filters to find subsets of participants that meet specific QA or task-based conditions.
+
+---
+
+### 🧭 Using the Interface
+
+- 🏠 Use the **search bar** on the **Home page** or any **Results page** to look up participants by ID.
+- 🧇 Click the **waffle icon** in the top-right corner at any time to open the **filter slider** and refine your view.
+
