@@ -85,7 +85,7 @@ In your terminal:
 
 ```sh
 git clone https://github.com/HBClab/boost-act-js.git
-cd boost-beh-act
+cd boost-act-js
 ```
 
 
@@ -107,7 +107,7 @@ docker build -t act .
 ▶️ Run the container:
 
 ```sh
-docker run -p 3000:3000 boost-beh
+docker run -p 3000:3000 boost-act
 ```
 
 ---
