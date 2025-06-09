@@ -1,11 +1,10 @@
 #!/bin/sh
 set -e
 
-# 1) run your sparse‐checkout on every start
-/sparse_checkout.sh
+echo "→ listing /usr/local/bin:"
+ls -l /usr/local/bin
 
-# 2) list to verify (optional)
-/usr/bin/ls -R public/data
+echo "→ running sparse-checkout…"
+sh /usr/local/bin/sparse-checkout.sh
 
-# 3) hand off to whatever CMD you supplied
-exec "$@"
+exec npm run start
