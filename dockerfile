@@ -50,8 +50,16 @@ RUN npm run build
 # Install serve to run the static site
 RUN npm install -g serve
 
-# Expose the port
+# copy your two scripts in, make them executable
+COPY sparse-checkout.sh /usr/local/bin/sparse-checkout.sh
+COPY docker-entrypoint.sh  /usr/local/bin/docker-entrypoint.sh
+
+RUN chmod +x /usr/local/bin/sparse-checkout.sh \
+    /usr/local/bin/docker-entrypoint.sh
+
+# expose port
 EXPOSE 3000
 
-# Serve the built app
+# run entrypoint, then CMD
+ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
 CMD ["serve", "-s", "build", "-l", "3000"]
