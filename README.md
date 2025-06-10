@@ -107,7 +107,7 @@ docker build -t act .
 ▶️ Run the container:
 
 ```sh
-docker run -p 3000:3000 boost-act
+docker run -p 3000:3000 act
 ```
 
 ---
@@ -135,3 +135,9 @@ The app is designed to support two main workflows:
 - 🏠 Use the **search bar** on the **Home page** or any **Results page** to look up participants by ID.
 - 🧇 Click the **waffle icon** in the top-right corner at any time to open the **filter slider** and refine your view.
 
+
+
+
+## FEATURE REQUESTS
+- [ ] sort by activity types
+    - HC
