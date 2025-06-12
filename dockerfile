@@ -23,4 +23,4 @@ RUN chmod +x /usr/local/bin/sparse-checkout.sh \
 EXPOSE 3000
 
 # run entrypoint, then CMD
-ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
+ENTRYPOINT ["sh", "/usr/local/bin/docker-entrypoint.sh"]

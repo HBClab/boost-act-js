@@ -1,5 +1,5 @@
-#!/bin/bash
-set -e
+#!/bin/sh
+set -
 
 echo "→ listing /usr/local/bin:"
 ls -l /usr/local/bin
