@@ -137,22 +137,61 @@ The app is designed to support two main workflows:
 
 
 ## Updating 
-```sh
+
+
+📁 Step 1: Make sure you’re one level above the boost-act-js folder
+
+🖼️ Visual guide:
+
+YourProjectFolder/
+├── boost-act-js/     ← This is the folder to delete
+└── (other stuff)
+
+If you’re inside the folder now:
+
+cd ..
+
+
+⸻
+
+🗑️ Step 2: Remove the boost-act-js folder completely
+
+On Windows PowerShell:
+
 Remove-Item -Recurse -Force .\boost-act-js\
-```
+
+On macOS/Linux (in Terminal):
+
+rm -rf ./boost-act-js
 
 
-```sh
+⸻
+
+📥 Step 3: Clone the latest clean version
+
 git clone https://github.com/HBClab/boost-act-js.git
 cd boost-act-js
-```
 
-```sh
+
+⸻
+
+🧱 Step 4: Rebuild the Docker image
+
 docker build -t act .
-```
 
-```sh
+
+⸻
+
+▶️ Step 5: Run the container
+
 docker run -p 3000:3000 act
+
+
+⸻
+
+🟢 You should now see the app running at:
+🌐 http://localhost:3000
+
 ```
 ## FEATURE REQUESTS
 - [ ] sort by activity types
