@@ -136,8 +136,25 @@ The app is designed to support two main workflows:
 - 🧇 Click the **waffle icon** in the top-right corner at any time to open the **filter slider** and refine your view.
 
 
+## Updating 
+```sh
+Remove-Item -Recurse -Force .\boost-act-js\
+```
 
 
+```sh
+git clone https://github.com/HBClab/boost-act-js.git
+cd boost-act-js
+```
+
+```sh
+docker build -t act .
+```
+
+```sh
+docker run -p 3000:3000 act
+```
 ## FEATURE REQUESTS
 - [ ] sort by activity types
     - HC
+
