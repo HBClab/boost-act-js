@@ -1,26 +1,23 @@
 # Use Node base image
 FROM node:18-alpine
 
-# Install git for the sparse-checkout
-RUN apk add --no-cache git
+# Install dependencies (git needed for sparse checkout)
+RUN apk add --no-cache git bash
 
-
-# Copy package files and install dependencies (cache layer)
+# Copy package files and install dependencies
 COPY package*.json ./
 RUN npm config set registry https://registry.npmjs.org/ && npm install
 
-# Copy the rest of your source
+# Copy all source code
 COPY . .
 
-# copy your two scripts in, make them executable
-COPY sparse-checkout.sh /usr/local/bin/sparse-checkout.sh
-COPY docker-entrypoint.sh  /usr/local/bin/docker-entrypoint.sh
+# Copy entrypoint script with Unix line endings
+COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
+RUN dos2unix /usr/local/bin/docker-entrypoint.sh && chmod +x /usr/local/bin/docker-entrypoint.sh
 
-RUN chmod +x /usr/local/bin/sparse-checkout.sh \
-    /usr/local/bin/docker-entrypoint.sh
-
-# expose port
+# port 3000
 EXPOSE 3000
 
-# run entrypoint, then CMD
-ENTRYPOINT ["sh", "/usr/local/bin/docker-entrypoint.sh"]
+# Use bash explicitly to avoid shebang issues
+ENTRYPOINT ["bash", "/usr/local/bin/docker-entrypoint.sh"]
+CMD ["npm", "run", "start"]
