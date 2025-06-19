@@ -1,4 +1,4 @@
-// src/components/ResultCard/ResultCard.jsx
+
 import React from 'react';
 import './ResultCard.css';
 

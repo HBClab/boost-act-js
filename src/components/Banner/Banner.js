@@ -39,7 +39,7 @@ const Banner = () => {
         <button className="navButton" onClick={() => navigate("/")}>
           Home
         </button>
-        <button className="navButton" onClick={() => navigate("/inprogress")}>
+        <button className="navButton" onClick={() => navigate("/group")}>
           Group Level Analyses
         </button>
       </div>

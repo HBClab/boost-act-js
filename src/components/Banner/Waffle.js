@@ -17,10 +17,13 @@ export default function Filter({ onApply, onClose }) {
   const popupRef = useRef(null);
 
   useEffect(() => {
-    fetch('/data/data.json')
-      .then(res => res.ok ? res.json() : Promise.reject(res.status))
-      .then(setData)
-      .catch(err => console.error('Failed to load data.json in filter:', err));
+    const timeout = setTimeout(() => {
+      fetch('/data/data.json')
+        .then(res => res.ok ? res.json() : Promise.reject(res.status))
+        .then(setData)
+        .catch(err => console.error('Failed to load data.json in filter:', err));
+    }, 500); // 500ms delay
+    return () => clearTimeout(timeout);
   }, []);
 
   useEffect(() => {

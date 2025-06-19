@@ -1,0 +1,64 @@
+/* ./pages/Group/Group.css  */
+.group-home-container {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.title-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.title-row {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center title horizontally */
+  margin-bottom: 2rem;
+  width: 100%;
+  position: relative;
+}
+
+.back-button-container {
+  margin-bottom: 1rem; /* Space below button and above title row */
+  display: flex;
+  /* Adjust margin or padding here as needed */
+}
+
+.back-button-container {
+  margin-bottom: 1rem; /* Space below button and above title row */
+  display: flex;
+  /* Adjust margin or padding here as needed */
+}
+
+.back-button-container {
+  margin-right: 1rem; /* Adjust spacing between button and title as needed */
+  display: flex;
+  /* Adjust left margin or padding here if you want the button to hug the left edge more closely */
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0 auto; /* Center title horizontally in the row */
+  font-family: "Poppins", sans-serif;
+}
+
+
+.group-card {
+  /* give it some explicit height, or flex:1 if parent is flex */
+  height: calc(100vh - 6rem); /* adjust as needed */
+  width: 100%;
+  position: relative;
+}
+
+.group-iframe {
+  border: none;
+  width: 100%;
+  height: 100%;
+}
